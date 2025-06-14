@@ -1,0 +1,383 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f7f7f7;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+.dark-mode {
+  background: #121212;
+  color: #eaeaea;
+}
+
+.app-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  width: 100%;
+  padding: 2rem;
+
+  /* 🎨 Colorful Gradient Background */
+  background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb, #a6c1ee, #84fab0, #8fd3f4);
+  background-size: 500% 500%;
+  animation: gradientFlow 18s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.dark-mode .app-wrapper {
+  background: linear-gradient(270deg, #232526, #414345, #28313b, #485563, #2c3e50, #000000, #1a1a1a);
+  background-size: 500% 500%;
+  animation: gradientFlow 20s ease infinite;
+}
+
+
+/* 🎞️ Keyframes for smooth gradient animation */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.app {
+  width: 100%;
+  max-width: 700px;
+  position: relative;
+}
+
+.container {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .container {
+  background: #2b2b2b;
+}
+
+.dark-mode .note {
+  background: #3c3c3c;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.toggle-btn button {
+  font-size: 1.2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #444;
+}
+
+.dark-mode .toggle-btn button {
+  color: #ddd;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.dark-mode h1 {
+  color: #fff;
+}
+
+/* Search Box */
+.search-box {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px 36px 10px 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.search-box::after {
+  content: "🔍";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 1.2rem;
+  color: #999;
+}
+
+/* Input Area */
+.input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.input-area input,
+.input-area textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.input-area button {
+  padding: 10px;
+  background: #ffa500;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.input-area button:hover {
+  background: #ff8800;
+}
+
+/* Notes */
+.notes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.note {
+  background: #fff7a8;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  color: #333;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note-header h3 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.note p {
+  margin-top: 0.5rem;
+  white-space: pre-wrap;
+}
+
+.timestamp {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 8px;
+}
+
+.note-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.note-actions button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.note-actions button:hover {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.dark-mode input,
+.dark-mode textarea {
+  background-color: #2e2e2e;
+  color: #eaeaea;
+  border: 1px solid #555;
+}
+
+/* Password Input for Locked Notes */
+.note input[type="password"] {
+  margin-top: 0.5rem;
+  padding: 8px;
+  font-size: 1rem;
+  width: 100%;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.dark-mode .note input[type="password"] {
+  background: #2e2e2e;
+  color: #eaeaea;
+  border: 1px solid #555;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .app-wrapper {
+    padding: 1rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .note {
+    padding: 0.8rem;
+  }
+
+  .note-actions button {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  .toggle-btn button {
+    font-size: 1rem;
+  }
+}
+
+/* Note text colors */
+.note h3,
+.note p {
+  color: #222;
+}
+
+.dark-mode .note h3,
+.dark-mode .note p {
+  color: #eaeaea;
+}
+
+/* Search Icon */
+.search-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 1.2rem;
+  color: #888;
+}
+
+.search-box input {
+  padding-right: 2.2rem;
+}
+
+/* No Match Text */
+.no-match {
+  text-align: center;
+  font-style: italic;
+  color: #999;
+  margin-top: 1rem;
+}
+
+/* Note Content Labels */
+.note-content strong {
+  color: #111;
+}
+
+.dark-mode .note-content strong {
+  color: #f0f0f0;
+}
+
+.note-content {
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Password Input Styling */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  background: #fff;
+  color: #222;
+  letter-spacing: 2px;
+}
+
+.dark-mode .password-wrapper input {
+  background: #2e2e2e;
+  color: #eaeaea;
+  border: 1px solid #555;
+}
+
+.eye-toggle {
+  position: absolute;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #555;
+}
+
+.dark-mode .eye-toggle {
+  color: #ccc;
+}
+
+.masked-password {
+  padding: 0.6rem;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  background-color: white;
+  color: black;
+}
+
+.dark-mode .masked-password {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #555;
+}
+
+.error-msg {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+}
